@@ -1,1 +1,1 @@
-./gradlew jarrelease
+./gradlew jarrelease ziprelease

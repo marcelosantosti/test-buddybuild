@@ -52,6 +52,22 @@ android.libraryVariants.all { variant ->
             println 'Generated lib file.'
         }
     }
+
+    task ("zip${variant.name}", type:Zip, overwrite: true) {
+
+        new File("${buildDir.getPath()}/zips").mkdirs()
+
+        from "${buildDir.getPath()}/libs"
+        include '*.jar'
+        exclude '*-debug-*'
+        into '' // note that this specifies path *in* the archive
+        destinationDir file("${buildDir.getPath()}/zips") // directory that you want your archive to be placed in
+        archiveName "library.zip"
+
+        doLast {
+            println 'Zip generated.'
+        }
+    }
 }
 
 dependencies {
