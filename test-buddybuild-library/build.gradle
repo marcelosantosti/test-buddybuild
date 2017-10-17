@@ -21,6 +21,36 @@ android {
     }
 }
 
+android.libraryVariants.all { variant ->
+    task("jar${variant.name}", type: Jar) {
+        description "Bundles compiled .class files into a JAR file for $Variant.name."
+
+        outputs.upToDateWhen { return false }
+
+        //noinspection GroovyAssignabilityCheck
+        dependsOn variant.javaCompile
+
+        //noinspection GroovyAssignabilityCheck
+        from variant.javaCompile.destinationDir
+
+        baseName = "${project.name}-${variant.name}-${android.defaultConfig.versionName}"
+
+        from {
+            configurations.compile.collect {
+                it.isDirectory() ? it : zipTree(it)
+            }
+        } {
+            exclude 'R.txt'
+            exclude '**/R.html'
+            exclude '**/R.*.html'
+            exclude 'res*'
+            exclude 'aapt*'
+            exclude 'AndroidManifest.xml'
+        }
+
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
