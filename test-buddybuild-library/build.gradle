@@ -48,6 +48,9 @@ android.libraryVariants.all { variant ->
             exclude 'AndroidManifest.xml'
         }
 
+        doLast {
+            println 'Generated lib file.'
+        }
     }
 }
 

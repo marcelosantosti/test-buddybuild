@@ -25,7 +25,7 @@ public class OsInfo {
 
             osName = fields[position].getName();
 
-            Log.d("OsInfo", "Gotten Platform: " + osName);
+            //Log.d("OsInfo", "Gotten Platform: " + osName);
 
             return osName;
         } catch (Exception e) {
