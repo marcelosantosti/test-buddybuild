@@ -16,12 +16,12 @@ public class OsInfo {
 
         try {
             Field[] fields = Build.VERSION_CODES.class.getFields();
-            int position = Build.VERSION.SDK_INT + 1;
+            int position = Build.VERSION.SDK_INT;
 
             //if greater than KitKat, there is an additional version in 'fields' that is not actually used.
-            /*if (position > 20) {
+            if (position > 20) {
                 position += 1;
-            }*/
+            }
 
             osName = fields[position].getName();
 
