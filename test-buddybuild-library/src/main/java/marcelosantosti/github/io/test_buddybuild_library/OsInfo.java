@@ -1,6 +1,8 @@
 package marcelosantosti.github.io.test_buddybuild_library;
 
 import android.os.Build;
+import android.os.Debug;
+import android.util.Log;
 
 import java.lang.reflect.Field;
 
@@ -22,6 +24,8 @@ public class OsInfo {
             }*/
 
             osName = fields[position].getName();
+
+            Log.d("OsInfo", "Gotten Platform: " + osName);
 
             return osName;
         } catch (Exception e) {

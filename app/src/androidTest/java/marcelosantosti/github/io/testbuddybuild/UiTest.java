@@ -26,10 +26,11 @@ public class UiTest {
     public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class);
 
     @Test
-    public void changeText_sameActivity() {
+    public void getOsName() {
 
         onView(withId(R.id.buttonClick)).perform(click());
         onView(withId(R.id.textViewVersion)).check((matches(not(withText("Hello World!")))));
+        onView(withId(R.id.textViewVersion)).check((matches(not(withText("")))));
 
         try {
             Thread.sleep(1000);

@@ -20,7 +20,6 @@ public class OsInfoInstrumentedTest {
     @Test
     public void getPlatform_shouldNotBeEmpty() {
         String platform = OsInfo.getPlatform();
-        System.out.println("Platform: " + platform);
         assertTrue(platform != "");
     }
 }
