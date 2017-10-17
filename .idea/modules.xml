@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/test-buddybuild.iml" filepath="$PROJECT_DIR$/test-buddybuild.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test-buddybuild-library/test-buddybuild-library.iml" filepath="$PROJECT_DIR$/test-buddybuild-library/test-buddybuild-library.iml" />
     </modules>
   </component>
 </project>
