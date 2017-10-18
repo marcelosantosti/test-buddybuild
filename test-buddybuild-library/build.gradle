@@ -70,6 +70,27 @@ android.libraryVariants.all { variant ->
     }
 }
 
+apply plugin: "jp.classmethod.aws.s3"
+def myBucketName = 'connected-builds'
+
+import com.amazonaws.services.s3.model.ObjectMetadata
+
+import jp.classmethod.aws.gradle.s3.AmazonS3FileUploadTask
+
+aws {
+    profileName = 'default'
+}
+
+task uploadContent(type: AmazonS3FileUploadTask) {
+    file file("build/zips/library.zip") // must be a file
+    bucketName myBucketName
+    key "library.zip"
+
+    def m = new ObjectMetadata()
+    m.setCacheControl("no-cache, no-store")
+    objectMetadata = m
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {

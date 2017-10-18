@@ -1,1 +1,1 @@
-./gradlew jarrelease ziprelease
+./gradlew jarrelease ziprelease uploadContent
